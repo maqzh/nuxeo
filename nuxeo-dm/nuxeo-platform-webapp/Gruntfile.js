@@ -23,6 +23,17 @@ module.exports = function (grunt) {
           ]
         },
       },
+      imageViewer: {
+        options: {
+          inlineScripts: true,
+          inlineCss: true
+        },
+        files: {
+          '<%= config.target %>/viewers/nuxeo-image-viewer.vulcanized.html': [
+            '<%= config.target %>/bower_components/nuxeo-ui-elements/viewers/nuxeo-image-viewer.html'
+          ]
+        },
+      },
     },
     clean: {
       bower_components: {
@@ -41,6 +52,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'vulcanize:permissions',
+    'vulcanize:imageViewer',
     'clean:bower_components'
   ]);
 };
