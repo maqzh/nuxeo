@@ -34,6 +34,17 @@ module.exports = function (grunt) {
           ]
         },
       },
+      videoViewer: {
+        options: {
+          inlineScripts: true,
+          inlineCss: true
+        },
+        files: {
+          '<%= config.target %>/viewers/nuxeo-video-viewer.vulcanized.html': [
+            '<%= config.target %>/bower_components/nuxeo-ui-elements/viewers/nuxeo-video-viewer.html'
+          ]
+        },
+      },
     },
     clean: {
       bower_components: {
@@ -53,6 +64,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'vulcanize:permissions',
     'vulcanize:imageViewer',
+    'vulcanize:videoViewer',
     'clean:bower_components'
   ]);
 };
